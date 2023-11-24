@@ -19,6 +19,7 @@ mask = df['Epitope - Source Molecule IRI'].str.startswith(tuple(valid_prefixes))
 
 # Use the boolean mask to filter the DataFrame
 df = df[mask]
+# only the first 10,000 rows
 df.iloc[:10000]
 
 Entrez.email = "iamambri@gmail.com"  # Set your email address

@@ -14,9 +14,9 @@ import matplotlib.pyplot as plt
 
 access_token = os.environ.get("HF_HOME_TOKEN")
 
-from huggingface_hub import notebook_login
+from huggingface_hub import login
 
-notebook_login()
+login('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')
 
 # model_checkpoint = "facebook/esm2_t36_3B_UR50D"
 
