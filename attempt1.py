@@ -22,9 +22,9 @@ notebook_login()
 
 # df = pd.read_csv("processed2.csv")
 
-model_checkpoint = "facebook/esm2_t36_3B_UR50D"
+model_checkpoint = "facebook/esm2_t12_35M_UR50D"
 
-df = pd.read_csv("processed2.csv")
+df = pd.read_csv("processed1.csv")
 df.head()
 
 def build_labels(sequence, start, end):
