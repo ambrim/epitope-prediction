@@ -5,7 +5,7 @@ from Bio import SeqIO
 from io import StringIO
 from Bio import Entrez
 
-raw_excel = 'epitope_table_10k.xlsx'
+raw_excel = 'epitope_table_large.xlsx'
 
 # Use pandas.read_excel() to read the Excel file into a DataFrame
 df = pd.read_excel(raw_excel)
@@ -80,5 +80,5 @@ for index, row in df.iterrows():
     print(index, sequence)
 
 df = df.dropna(subset=['Epitope ID'])
-file_path = 'processed_large.csv'
+file_path = 'processed_10k.csv'
 df.to_csv(file_path) 
