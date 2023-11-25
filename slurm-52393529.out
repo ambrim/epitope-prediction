@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x14941c58a090>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/whoami-v2 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14941c58a090>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/gpfs/jiaweim/epitope/attempt1.py", line 19, in <module>
+    login(token='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', add_to_git_credential=True, write_permission=True)
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/huggingface_hub/_login.py", line 108, in login
+    _login(token, add_to_git_credential=add_to_git_credential, write_permission=write_permission)
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/huggingface_hub/_login.py", line 279, in _login
+    permission = get_token_permission(token)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 1173, in get_token_permission
+    return self.whoami(token=token)["auth"]["accessToken"]["role"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 1138, in whoami
+    r = get_session().get(
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 63, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jiaweim/.conda/envs/epi/lib/python3.11/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /api/whoami-v2 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14941c58a090>: Failed to establish a new connection: [Errno -2] Name or service not known'))"), '(Request ID: 9112b890-5ac3-44b9-bf81-3370cbd19d92)')
+/var/spool/slurmd/job52393529/slurm_script: line 22: /home/jiaweim: Is a directory

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/scratch/gpfs/jiaweim/epitope/data_processing.py", line 4, in <module>
+    from Bio import SeqIO
+ModuleNotFoundError: No module named 'Bio'
