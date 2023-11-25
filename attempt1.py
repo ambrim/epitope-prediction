@@ -79,7 +79,7 @@ model_name = model_checkpoint.split("/")[-1]
 batch_size = 8
 
 args = TrainingArguments(
-    f"{model_name}-finetuned-epitope",
+    f"{model_name}-finetuned-epitope_small",
     evaluation_strategy = "epoch",
     save_strategy = "epoch",
     learning_rate=1e-4,
