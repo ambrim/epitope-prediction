@@ -16,7 +16,7 @@ access_token = os.environ.get("HF_HOME_TOKEN")
 
 from huggingface_hub import login
 
-login(token='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', add_to_git_credential=True, write_permission=True)
+login(token='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', write_permission=True)
 
 # model_checkpoint = "facebook/esm2_t36_3B_UR50D"
 

@@ -5,7 +5,7 @@ from Bio import SeqIO
 from io import StringIO
 from Bio import Entrez
 
-raw_excel = 'epitope_table_large.xlsx'
+raw_excel = 'epitope_table_100k.xlsx'
 
 # Use pandas.read_excel() to read the Excel file into a DataFrame
 df = pd.read_excel(raw_excel)
@@ -19,8 +19,8 @@ mask = df['Epitope - Source Molecule IRI'].str.startswith(tuple(valid_prefixes))
 
 # Use the boolean mask to filter the DataFrame
 df = df[mask]
-# only the first 10,000 rows
-df = df.iloc[:10000]
+# only the first 20,000 rows
+df = df.iloc[:100000]
 
 Entrez.email = "iamambri@gmail.com"  # Set your email address
 df['Epitope ID'] = 0
