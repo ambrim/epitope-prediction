@@ -12,7 +12,6 @@ from transformers import DataCollatorForTokenClassification
 from sklearn.metrics import f1_score, precision_recall_curve, auc
 import matplotlib.pyplot as plt
 
-access_token = os.environ.get("HF_HOME_TOKEN")
 
 from huggingface_hub import login
 
